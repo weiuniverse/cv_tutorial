@@ -1,1 +1,2 @@
-# cv_homework
+# computer vision tutorial
+use opencv, tensorflow 
