@@ -42,6 +42,25 @@ Usage example:
     plt.scatter(pts1[:,:,0],pts1[:,:,1], 0.5, c='r', marker='x')
 '''
 def feature_matching(img1, img2, savefig=False):
+    '''
+    Detect, extract and match features between img1 and img2.
+    Using SIFT as the detector/extractor, but this is inconsequential to the user.
+
+    Returns: (pts1, pts2), where ptsN are points on image N.
+        The lists are "aligned", i.e. point i in pts1 matches with point i in pts2.
+
+    Usage example:
+        img1 = cv2.imread("image1.jpg", 0)
+        img2 = cv2.imread("image2.jpg", 0)
+        (pts1, pts2) = feature_matching(img1, img2)
+
+        plt.subplot(121)
+        plt.imshow(img1)
+        plt.scatter(pts1[:,:,0],pts1[:,:,1], 0.5, c='r', marker='x')
+        plt.subplot(122)
+        plt.imshow(img2)
+        plt.scatter(pts1[:,:,0],pts1[:,:,1], 0.5, c='r', marker='x')
+    '''
     # Initiate SIFT detector
     sift = cv2.xfeatures2d.SIFT_create()
     # find the keypoints and descriptors with SIFT
